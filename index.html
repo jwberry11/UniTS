@@ -73,17 +73,45 @@
 
 <h2>3. Implementation</h2>
 <p>
-
+  In order to conduct our evaluation we had to pull in the repository from the GitHub of the authors. From there got the models that they used as well as their pre-trained weights that were shared throughout the model. After some code changes to get the model running properly on our machine we were able to successfully test the transfer and zero-shot learning capabilities of the models on some of the data that was provided.
+  The data that the author’s used was formatted according to the .ts Time Series for classification. Some data processing was done in order to reformat the data for forecasting analysis.
+  
+  There were various data loaders and datasets for the different tasks. We followed the format that was in place for other datasets and added ours to the corresponding files for the tasks of classification, forecasting, and anomaly detection. 
+  
+  Our first goal was to test the transfer learning capabilities for classification on our dataset so we ran our data along with the other data that was already present. We chose to only run prompt-tuning rather than doing more supervised training. This meant that only the tokens were updated and not the underlying model.
+  
+  Next, we wanted to test the transfer learning capabilities on forecasting for our data. We followed similar steps and added our data to the data loader for the prompt-tuning forecasting task.    
+  
+  The two tasks were defined in the following way:
 </p>
+<img src = 'ltf.png'>
+<img src = 'cls.png'>
+<
 
 <h2>4. Experimental Findings</h2>
 <p>
+  After running the model with the conditions specified above we got the following results. 
 
+  For the classification task we received the following results after running our multi-task classification with our new data set among others predefined by the authors.
+  
+  The model returned an accuracy of 0.70625 on the data as can be seen in ‘CLS_Project’.
 </p>
-
+<img src="cls_result.png">
+<p> 
+  For the our forecasting tasks we got an MSE of 0.4882508 and an MAE of 0.45813653.
+  This can be seen in the task named ‘LTF_Project’. 
+</p>
+<img src="ltf_results.png" >
+<p>
+  We also ran TimesNet, the generally accepted current SOTA time series model on our forecasting task. 
+  We were not able to run TimesNet for the classification task. However, for a similar dataset with 3 dimensions TimesNet achieved an accuracy score of 78.0. This indicates that UniTS was not quite as good as TimesNet, but was comparable. 
+</p>
 <h2>5. Conclusion</h2>
 <p>
-
+  As a result of our experiments, we are confident in the capabilities of the UniTS model to produce results for multiple tasks  using shared weights without any task-specific modules. 
+  This represents a large step forward for time series representations in deep learning models. The unified model generalizes temporal data well enough to outperform state of the art models fine tuned for each individual task.
+   Once the model parameters have been trained, it can be applied to any of the tasks discussed above without any fine tuning modules.
+    This provides utility to deep learning researchers who can save resources and improve efficiency by using the unified time series model to capture general temporal dynamics for several tasks. 
 </p>
 
 <h3>References</h3>
@@ -94,11 +122,10 @@
   (2024, February 29).
 </p>
 
-<p><a name="bottou-1990">[1]</a> <a href="https://papers.baulab.info/Bottou-1990.pdf"
-  >L&eacute;on Bottou and Patrick Gallinari.
-  <em>A framework for the cooperation of learning algorithms.</em></a>
-  Advances in neural information processing systems 3 (1990).
-</p>
+<p><a name="bottou-1990">[1]</a> <a href="https://openreview.net/pdf?id=ju_Uqw384Oq"
+  >Wu, H., Hu, T., Liu, Y., Zhou, H., Wang, J., & Long, M.
+  <em>TIMESNET: Temporal 2D-variation modeling.</em></a>
+</p> 
 
 <h2>Team Members</h2>
                                                    
@@ -112,7 +139,7 @@
 <footer class="nd-pagefooter">
   <div class="row">
     <div class="col-6 col-md text-center">
-      <a href="https://cs7150.baulab.info/">About CS 7150</a>
+      <a href="https://ds4440.baulab.info">About DS 4440</a>
     </div>
   </div>
 </footer>
