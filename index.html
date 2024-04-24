@@ -40,7 +40,7 @@
 <h2>1. Introduction</h2>
 
 <p>
-  The rise of foundational models in the sphere of generative artificial intelligence have already had a massive impact on deep learning. Foundational models are models that are trained on a broad array of 
+    The rise of foundational models in the sphere of generative artificial intelligence have already had a massive impact on deep learning. Foundational models are models that are trained on a broad array of 
   data and are capable of performing various tasks The most notable examples are large language models as they were the first to arise, initially in the area of natural language processing. Starting off being capable of only text-to-text tasks,
   foundational models have since developed the ability to perform tasks such as image generation, code completion,  and visual comprehension among many others. 
   However, one area in which there has not been a development of a unified, foundational model is time series forecasting. Time series forecasting tasks can be broken down into several categories.
@@ -51,7 +51,7 @@
     <li> Classification - Categorizing time series data into predefined groups based on temporal features</li>
     <li> Anomaly Detection - The identification of unusual patterns or events that deviate from the expected behavior of a time series</li>
   </ul>
-  A number of state of the art models exist for the various tasks, with some of the best performers being TimesNet, TimeMixer, and iTransformer. 
+    A number of state of the art models exist for the various tasks, with some of the best performers being TimesNet, TimeMixer, and iTransformer. 
   But until now, there has not been a foundational model for time series data. This is due to a few challenges that are unique to time series data. One is that characteristics of time series data vary widely over different domains.
   Since time series models learn based on temporal dynamics, being able to capture common dynamics that apply to unseen all time series is key in developing a unified model. Another is that different tasks in time series analysis
   have fundamentally different goals such as regression or classification in typical machine learning. A foundational model must be able to adapt to a range of tasks without compromising performance.
@@ -62,7 +62,7 @@
 <h2>2. Literature Review</h2>
 
 <p>
-  Gao et al. developed the UniTS model to handle multiple time series tasks with shared weights. Their generalized model outperforms task-tuned baseline models 27 of 38 times. 
+    Gao et al. developed the UniTS model to handle multiple time series tasks with shared weights. Their generalized model outperforms task-tuned baseline models 27 of 38 times. 
   The tasks consisted of forecasting, imputation, anomaly detection, and classification, all of which can be performed by the same model without requiring any additional task-specific modules. 
   The UniTS model consists of a token based approach inspired by LLMs. The model introduces three tokens: sequence tokens, prompt tokens, and task tokens. 
   The time series input is encoded into the sequence tokens, the prompt tokens carry important information about the task and domain, and the task tokens are concatenated to the sequence and 
@@ -73,7 +73,7 @@
 
 <h2>3. Implementation</h2>
 <p>
-  In order to conduct our evaluation we had to pull in the repository from the GitHub of the authors. From there got the models that they used as well as their pre-trained weights that were shared throughout the model. After some code changes to get the model running properly on our machine we were able to successfully test the transfer and zero-shot learning capabilities of the models on some of the data that was provided.
+    In order to conduct our evaluation we had to pull in the repository from the GitHub of the authors. From there got the models that they used as well as their pre-trained weights that were shared throughout the model. After some code changes to get the model running properly on our machine we were able to successfully test the transfer and zero-shot learning capabilities of the models on some of the data that was provided.
   The data that the authors used was formatted according to the .ts Time Series for classification. Some data processing was done in order to reformat the data for forecasting analysis.
   
   There were various data loaders and datasets for the different tasks. We followed the format that was in place for other datasets and added ours to the corresponding files for the tasks of classification, forecasting, and anomaly detection. 
@@ -112,10 +112,9 @@
 </p>
 <h2>5. Conclusion</h2>
 <p>
-  As a result of our experiments, we are confident in the capabilities of the UniTS model to produce results for multiple tasks  using shared weights without any task-specific modules. 
-  This represents a large step forward for time series representations in deep learning models. The unified model generalizes temporal data well enough to outperform state of the art models fine tuned for each individual task.
-   Once the model parameters have been trained, it can be applied to any of the tasks discussed above without any fine tuning modules.
-    This provides utility to deep learning researchers who can save resources and improve efficiency by using the unified time series model to capture general temporal dynamics for several tasks. 
+    Despite the result of our experiments, we are confident in the capabilities of the UniTS model to produce results for multiple tasks using shared weights without any task-specific modules. UniTS did not always outperform state of the art models, but did outperform in many respects This represents a large step forward for time series representations in deep learning models. The unified model generalizes temporal data well enough to outperform state of the art models fine tuned for each individual task in some cases. Once the model’s parameters have been trained, it can be applied to any of the tasks discussed above without any fine tuning modules. This provides utility to deep learning researchers who can save resources and improve efficiency by using the unified time series model to capture general temporal dynamics for several tasks. 
+	There is much more to be explored relating to this model and time series analysis. We ran into a lot of difficulties with the setup of the model and with the format of the data. If given more time, we would definitely like to explore the other capabilities of the model and test more data. More niche datasets and use cases outside the domains covered by the training data would be particularly interesting to look at.
+
 </p>
 
 <h3>References</h3>
