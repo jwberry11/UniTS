@@ -74,7 +74,7 @@
 <h2>3. Implementation</h2>
 <p>
   In order to conduct our evaluation we had to pull in the repository from the GitHub of the authors. From there got the models that they used as well as their pre-trained weights that were shared throughout the model. After some code changes to get the model running properly on our machine we were able to successfully test the transfer and zero-shot learning capabilities of the models on some of the data that was provided.
-  The data that the author’s used was formatted according to the .ts Time Series for classification. Some data processing was done in order to reformat the data for forecasting analysis.
+  The data that the authors used was formatted according to the .ts Time Series for classification. Some data processing was done in order to reformat the data for forecasting analysis.
   
   There were various data loaders and datasets for the different tasks. We followed the format that was in place for other datasets and added ours to the corresponding files for the tasks of classification, forecasting, and anomaly detection. 
   
@@ -85,8 +85,9 @@
   The two tasks were defined in the following way:
 </p>
 <img src = 'ltf.png'>
+<p></p>
 <img src = 'cls.png'>
-<
+
 
 <h2>4. Experimental Findings</h2>
 <p>
@@ -94,12 +95,12 @@
 
   For the classification task we received the following results after running our multi-task classification with our new data set among others predefined by the authors.
   
-  The model returned an accuracy of 0.70625 on the data as can be seen in ‘CLS_Project’.
+  The model returned an accuracy of 0.70625 on the data as can be seen in CLS_Project.
 </p>
 <img src="cls_result.png">
 <p> 
   For the our forecasting tasks we got an MSE of 0.4882508 and an MAE of 0.45813653.
-  This can be seen in the task named ‘LTF_Project’. 
+  This can be seen in the task named LTF_Project. 
 </p>
 <img src="ltf_results.png" >
 <p>
